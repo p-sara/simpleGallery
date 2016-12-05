@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  background-color: lightcoral;
+}
+
+header {
+  width: 100%;
+  height: 400px;
+  background-image: url("../img/mucha5.jpg");
+  background-size: cover;
+  background-position: 0 -50px;
+}
+
+.gallery {
+  margin: 50px 0;
+  width: 100%;
+}
+
+.gallery .modal {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(170, 50%, 45%, 0.7);
+  z-index: 1;
+  display: none;
+}
+.gallery .modal .slider {
+  height:100%;
+  width:100%;
+}
+
+.gallery .modal div[class^="arrow"] {
+  height: 60px;
+  width: 60px;
+  background-image: url("../img/arrow.png");
+  background-size: cover;
+  position: absolute;
+  top: 300px;
+}
+
+.gallery .modal .arrowRight {
+  right: 50px;
+  z-index:999;
+}
+
+.gallery .modal .arrowLeft {
+  left: 50px;
+  z-index:999;
+  transform: rotateY(180deg);
+}
+
+.miniatures img {
+  height: 400px;
+  width: 320px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.miniatures img:first-child {
+  top: 500px;
+  left: 160px;
+}
+
+.miniatures img:nth-child(2) {
+  top: 500px;
+  right: 160px;
+}
+
+.miniatures img:nth-child(3) {
+  top: 1000px;
+  left: 160px;
+}
+
+.miniatures img:nth-child(4) {
+  top: 1000px;
+  right: 160px;
+}
+.visible {
+height:800px;
+width:640px;
+z-index:999;
+position:fixed;
+top:0;
+left:360px;
+}
+.unvisible {
+  display:none;
+}

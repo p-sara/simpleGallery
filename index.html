@@ -1,0 +1,113 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Galeria</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <header></header>
+  <section class="gallery">
+    <div class="miniatures">
+    <img  data-number=0 src="img/mucha1.jpg" />
+    <img  data-number=1 src="img/mucha2.jpg" />
+    <img  data-number=2 src="img/mucha3.jpg" />
+    <img  data-number=3 src="img/mucha4.jpg" />
+    </div>
+    <div class="modal">
+      <div class="slider">
+    <img class="img" id="0" src="img/mucha1.jpg"/>
+    <img class="img" id="1" src="img/mucha2.jpg" />
+    <img class="img" id="2" src="img/mucha3.jpg" />
+    <img class="img" id="3" src="img/mucha4.jpg" />
+      </div>
+      <div class="arrowRight"></div>
+      <div class="arrowLeft"></div>
+    </div>
+  </section>
+</body>
+<script>
+  
+  var image = document.querySelector(".slider").children;
+  console.log(image);
+  var modal = document.querySelector(".modal");
+  var pictures = document.querySelector(".miniatures").children;
+  var slider = document.querySelector(".slider");
+  var aRight = document.querySelector(".arrowRight");
+  var aLeft = document.querySelector(".arrowLeft");
+  var turnOn = false;
+  var pictureNumber = 0;
+  
+
+  function showPic() {
+    for (var x=0;x<image.length;x++) {
+      image[x].classList.add("unvisible");
+    }
+    var index = this.getAttribute("data-number");
+    image[index].classList.remove("unvisible");
+      image[index].classList.add("visible");
+      modal.style.display = "block";
+      //pobieram atrybut z moich miniaturek i ustawiam dużemy obrazkowi o id z tym numerkiem kolejne id visible
+      }
+  
+  for (var i = 0; i < pictures.length; i++) {
+    pictures[i].addEventListener("click", showPic);
+  }
+  //wywołuję funkcję dla każdego z dzieci poprzez pętle
+  
+  function closePic() {
+    //pobieram dzieci mojego okienka slideru
+    for (var z=0; z<image.length;z++){
+      if (image[z].classList.contains("visible")){
+        image[z].classList.remove("visible");
+        modal.style.display = "none";
+        //iteruję przez pętle, jeśli któreś ma id visible, ustawiam mu id zero i modalnemu okienku display none
+      }
+    }
+  }
+  slider.addEventListener("click", closePic);
+  //funkcję wywołuję na sliderze, można kliknąć gdziekolwiek i modalne okno się zamknie
+  
+
+  
+  function slideRight() {
+    
+    var current = document.querySelector(".visible");
+    var index = parseFloat(current.getAttribute("id"));
+    image[index].classList.remove("visible");
+    image[index].classList.add("unvisible");
+    index++;
+    if (index>=image.length) {
+      index=0;
+    }
+    image[index].classList.remove("unvisible");
+    image[index].classList.add("visible");
+    //bigPic[index].id = "visible";
+    
+  };
+
+
+ function slideLeft() {
+    
+    var current = document.querySelector(".visible");
+    var index = parseFloat(current.getAttribute("id"));
+    image[index].classList.remove("visible");
+    image[index].classList.add("unvisible");
+    index--;
+    if (index<0) {
+      index=image.length-1;
+    }
+    image[index].classList.remove("unvisible");
+    image[index].classList.add("visible");
+    //bigPic[index].id = "visible";
+    
+  };
+
+  aRight.addEventListener("click", slideRight);
+  aLeft.addEventListener("click", slideLeft);
+  
+</script>
+
+</html>
