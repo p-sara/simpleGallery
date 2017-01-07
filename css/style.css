@@ -1,14 +1,15 @@
 body {
   margin: 0;
-  background-image: url("../img/back2.jpg");
+  background-color:#dcdde9;
 }
 
 header {
   width: 100%;
-  height: 400px;
-  background-image: url("../img/mucha5.jpg");
+  height: 150px;
+  background-color: black;
+  background-image: url("../img/russian.jpg");
   background-size: cover;
-  background-position: 0 -50px;
+  background-position: center center;
 }
 
 .gallery {
@@ -50,35 +51,43 @@ header {
   transform: rotateY(180deg);
 }
 
-.miniatures img {
-  height: 400px;
-  width: 320px;
+.miniatures div {
+  height: 350px;
+  width: 350px;
   cursor: pointer;
   position: absolute;
+  border-radius: 50%;
 }
 
-.miniatures img:first-child {
+.miniatures div:first-child {
   top: 500px;
   left: 160px;
+  background-image: url("../img/meeting1.jpg");
+  background-position: 375px;
 }
 
-.miniatures img:nth-child(2) {
+.miniatures div:nth-child(2) {
   top: 500px;
   right: 160px;
+  background-image: url("../img/meeting2.jpg");
+  background-position: 375px;
 }
 
-.miniatures img:nth-child(3) {
+.miniatures div:nth-child(3) {
   top: 1000px;
   left: 160px;
+  background-image: url("../img/meeting3.jpg");
 }
 
-.miniatures img:nth-child(4) {
+.miniatures div:nth-child(4) {
   top: 1000px;
   right: 160px;
+  background-image: url("../img/meeting4.jpg");
+  background-position: 575px;
 }
 .visible {
-height:800px;
-width:640px;
+height:400px;
+width:800px;
 z-index:999;
 position:fixed;
 top:0;
