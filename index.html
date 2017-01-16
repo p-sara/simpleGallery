@@ -43,10 +43,10 @@
 
   function showPic() {
     for (var x=0;x<image.length;x++) {
-      image[x].classList.add("unvisible");
+      image[x].classList.add("invisible");
     }
     var index = this.getAttribute("data-number");
-    image[index].classList.remove("unvisible");
+    image[index].classList.remove("invisible");
       image[index].classList.add("visible");
       modal.style.display = "block";
       //pobieram atrybut z moich miniaturek i ustawiam dużemy obrazkowi o id z tym numerkiem kolejne id visible
@@ -77,12 +77,12 @@
     var current = document.querySelector(".visible");
     var index = parseFloat(current.getAttribute("id"));
     image[index].classList.remove("visible");
-    image[index].classList.add("unvisible");
+    image[index].classList.add("invisible");
     index++;
     if (index>=image.length) {
       index=0;
     }
-    image[index].classList.remove("unvisible");
+    image[index].classList.remove("invisible");
     image[index].classList.add("visible");
     //bigPic[index].id = "visible";
     
@@ -94,12 +94,12 @@
     var current = document.querySelector(".visible");
     var index = parseFloat(current.getAttribute("id"));
     image[index].classList.remove("visible");
-    image[index].classList.add("unvisible");
+    image[index].classList.add("invisible");
     index--;
     if (index<0) {
       index=image.length-1;
     }
-    image[index].classList.remove("unvisible");
+    image[index].classList.remove("invisible");
     image[index].classList.add("visible");
     //bigPic[index].id = "visible";
     
